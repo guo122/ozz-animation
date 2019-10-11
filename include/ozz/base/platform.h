@@ -32,6 +32,15 @@
 #include <cassert>
 #include <cstddef>
 
+#include <iostream>
+#define gzytest_DrawLine std::cout << "-------------------------------------------------------" << std::endl;
+#define gzytest_RangeList_Output(_list) \
+gzytest_DrawLine;\
+for(auto it = _list; it != _list; ++it) {std::cout << *it << std::endl;}
+#define gzytest_StdVector_Output(_list) \
+gzytest_DrawLine;\
+for(auto& x: _list){std::cout << x << std::endl; }
+
 namespace ozz {
 
 // Compile time string concatenation.

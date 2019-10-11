@@ -152,6 +152,7 @@ void Skeleton::Load(ozz::io::IArchive& _archive, uint32_t _version) {
 
   // Fixes up array of pointers. Stops at num_joints - 1, so that it doesn't
   // read memory past the end of the buffer.
+    
   for (int i = 0; i < num_joints - 1; ++i) {
     joint_names_[i] = cursor;
     cursor += std::strlen(joint_names_[i]) + 1;
