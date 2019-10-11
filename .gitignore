@@ -1,3 +1,7 @@
 build/
 build-cc/
 .DS_Store
+*.swp
+Solution
+html
+latex
