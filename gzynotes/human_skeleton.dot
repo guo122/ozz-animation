@@ -1,0 +1,139 @@
+digraph G {
+	
+	rankdir = BT
+
+	0[label="Hips"]
+	1[label="Pelvis"]
+	2[label="Spine"]
+	3[label="Spine1"]
+	4[label="Spine2"]
+	5[label="Spine3"]
+	6[label="Neck"]
+	7[label="Head"]
+	8[label="Bip01 HeadNub"]
+	9[label="LeftShoulder"]
+	10[label="LeftArm"]
+	11[label="LeftForeArm"]
+	12[label="Lefthand"]
+	13[label="LeftHandThumb1"]
+	14[label="LeftHandThumb2"]
+	15[label="LeftHandThumb3"]
+	16[label="Bip01 L Finger0Nub"]
+	17[label="LeftHandIndex1"]
+	18[label="LeftHandIndex2"]
+	19[label="LeftHandIndex3"]
+	20[label="Bip01 L Finger1Nub"]
+	21[label="LeftHandMiddle1"]
+	22[label="LeftHandMiddle2"]
+	23[label="LeftHandMiddle3"]
+	24[label="Bip01 L Finger2Nub"]
+	25[label="LeftHandRing1"]
+	26[label="LeftHandRing2"]
+	27[label="LeftHandRing3"]
+	28[label="Bip01 L Finger3Nub"]
+	29[label="LeftHandRingPinky1"]
+	30[label="LeftHandRingPinky2"]
+	31[label="LeftHandRingPinky3"]
+	32[label="Bip01 L Finger4Nub"]
+	33[label="RightShoulder"]
+	34[label="RightArm"]
+	35[label="RightForeArm"]
+	36[label="RightHand"]
+	37[label="RightHandThumb1"]
+	38[label="RightHandThumb2"]
+	39[label="RightHandThumb3"]
+	40[label="Bip01 R Finger0Nub"]
+	41[label="RightHandIndex1"]
+	42[label="RightHandIndex2"]
+	43[label="RightHandIndex3"]
+	44[label="Bip01 R Finger1Nub"]
+	45[label="RightHandMiddle1"]
+	46[label="RightHandMiddle2"]
+	47[label="RightHandMiddle3"]
+	48[label="Bip01 R Finger2Nub"]
+	49[label="RightHandRing1"]
+	50[label="RightHandRing2"]
+	51[label="RightHandRing3"]
+	52[label="Bip01 R Finger3Nub"]
+	53[label="RightHandPinky1"]
+	54[label="RightHandPinky2"]
+	55[label="RightHandPinky3"]
+	56[label="Bip01 R Finger4Nub"]
+	57[label="LeftUpLeg"]
+	58[label="LeftLeg"]
+	59[label="LeftFoot"]
+	60[label="LeftFootThumb1"]
+	61[label="Bip01 L Toe0Nub"]
+	62[label="RightUpLeg"]
+	63[label="RightLeg"]
+	64[label="RightFoot"]
+	65[label="RightFootThumb1"]
+	66[label="Bip01 R Toe0Nub"]
+
+	1 -> 0
+	2 -> 1
+	3 -> 2
+	4 -> 3
+	5 -> 4
+	6 -> 5
+	7 -> 6
+	8 -> 7
+	9 -> 6
+	10 -> 9
+	11 -> 10
+	12 -> 11
+	13 -> 12
+	14 -> 13
+	15 -> 14
+	16 -> 15
+	17 -> 12
+	18 -> 17
+	19 -> 18
+	20 -> 19
+	21 -> 12
+	22 -> 21
+	23 -> 22
+	24 -> 23
+	25 -> 12
+	26 -> 25
+	27 -> 26
+	28 -> 27
+	29 -> 12
+	30 -> 29
+	31 -> 30
+	32 -> 31
+	33 -> 6
+	34 -> 33
+	35 -> 34
+	36 -> 35
+	37 -> 36
+	38 -> 37
+	39 -> 38
+	40 -> 39
+	41 -> 36
+	42 -> 41
+	43 -> 42
+	44 -> 43
+	45 -> 36
+	46 -> 45
+	47 -> 46
+	48 -> 47
+	49 -> 36
+	50 -> 49
+	51 -> 50
+	52 -> 51
+	53 -> 36
+	54 -> 53
+	55 -> 54
+	56 -> 55
+	57 -> 2
+	58 -> 57
+	59 -> 58
+	60 -> 59
+	61 -> 60
+	62 -> 2
+	63 -> 62
+	64 -> 63
+	65 -> 64
+	66 -> 65
+}
