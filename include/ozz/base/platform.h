@@ -33,13 +33,26 @@
 #include <cstddef>
 
 #include <iostream>
+
 #define gzytest_DrawLine std::cout << "-------------------------------------------------------" << std::endl;
+
 #define gzytest_RangeList_Output(_list) \
 gzytest_DrawLine;\
-for(auto it = _list; it != _list; ++it) {std::cout << *it << std::endl;}
+for(auto it = _list.begin; it != _list.end; ++it) {std::cout << *it << std::endl;}
+
 #define gzytest_StdVector_Output(_list) \
 gzytest_DrawLine;\
 for(auto& x: _list){std::cout << x << std::endl; }
+
+#define gzytest_SimdFloat4_Output(_float4) \
+std::cout << _float4[0] << " " << _float4[1] << " " << _float4[2] << " " << _float4[3] << std::endl;
+
+#define gzytest_Matrix4x4_Output(_matrix) \
+gzytest_DrawLine;\
+gzytest_SimdFloat4_Output(_matrix.cols[0]);\
+gzytest_SimdFloat4_Output(_matrix.cols[1]);\
+gzytest_SimdFloat4_Output(_matrix.cols[2]);\
+gzytest_SimdFloat4_Output(_matrix.cols[3]);
 
 namespace ozz {
 

@@ -89,21 +89,23 @@ class AttachSampleApplication : public ozz::sample::Application {
   // Samples animation, transforms to model space and renders.
   virtual bool OnDisplay(ozz::sample::Renderer* _renderer) {
     if (!_renderer->DrawPosture(skeleton_, make_range(models_),
-                                ozz::math::Float4x4::identity())) {
+                                ozz::math::Float4x4::identity(), true)) {
       return false;
     }
 
     // Prepares attached object transformation.
     // Gets model space transformation of the joint.
     const ozz::math::Float4x4& joint = models_[attachment_];
-
+//      gzytest_Matrix4x4_Output(joint);
     // Builds offset transformation matrix.
     const ozz::math::SimdFloat4 translation =
         ozz::math::simd_float4::Load3PtrU(&offset_.x);
 
+//      gzytest_SimdFloat4_Output(translation);
     // Concatenates joint and offset transformations.
     const ozz::math::Float4x4 transform =
         joint * ozz::math::Float4x4::Translation(translation);
+//      gzytest_Matrix4x4_Output(transform);
 
     // Prepare rendering.
     const float thickness = .01f;

@@ -162,6 +162,31 @@ void Skeleton::Load(ozz::io::IArchive& _archive, uint32_t _version) {
 
   _archive >> ozz::io::MakeArray(joint_parents_);
   _archive >> ozz::io::MakeArray(joint_bind_poses_);
+    
+//    gzytest_RangeList_Output(joint_names_);
+    
+//    {
+//        int i = 0;
+//        for(auto it = joint_parents_.begin; it != joint_parents_.end; ++it)
+//        {
+//            std::cout << "\t" << i << " -> " << *it << std::endl;
+//            i++;
+//        }
+//    }
+    
+//    {
+//        int i = 0;
+//        for(auto it = joint_bind_poses_.begin; it != joint_bind_poses_.end; ++it)
+//        {
+//            math::SoaTransform & trans = *it;
+//            std::cout << trans.translation.x[0] << " " << trans.translation.y[0] << " " <<trans.translation.z[0] << std::endl;
+//            std::cout << trans.translation.x[1] << " " << trans.translation.y[1] << " " <<trans.translation.z[1] << std::endl;
+//            std::cout << trans.translation.x[2] << " " << trans.translation.y[2] << " " <<trans.translation.z[2] << std::endl;
+//            std::cout << trans.translation.x[3] << " " << trans.translation.y[3] << " " <<trans.translation.z[3] << std::endl;
+//            ++i;
+//        }
+//        std::cout << "sum: " << i << std::endl;
+//    }
 }
 }  // namespace animation
 }  // namespace ozz

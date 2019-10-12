@@ -78,35 +78,35 @@ bool LocalToModelJob::Run() const {
   // matrices without requiring a branch.
   const math::Float4x4 identity = math::Float4x4::identity();
   const math::Float4x4* root_matrix = (root == NULL) ? &identity : root;
-
+    gzytest_Matrix4x4_Output(identity);
+    gzytest_Matrix4x4_Output((*root_matrix));
   // Applies hierarchical transformation.
   // Loop ends after "to".
   const int end = math::Min(to + 1, skeleton->num_joints());
-  // Begins iteration from "from", or the next joint if "from" is excluded.
-  // Process next joint if end is not reach. parents[begin] >= from is true as
-  // long as "begin" is a child of "from".
-  for (int i = math::Max(from + from_excluded, 0),
-           process = i < end && (!from_excluded || parents[i] >= from);
-       process;) {
-    // Builds soa matrices from soa transforms.
-    const math::SoaTransform& transform = input.begin[i / 4];
-    const math::SoaFloat4x4 local_soa_matrices = math::SoaFloat4x4::FromAffine(
-        transform.translation, transform.rotation, transform.scale);
-
-    // Converts to aos matrices.
-    math::Float4x4 local_aos_matrices[4];
-    math::Transpose16x16(&local_soa_matrices.cols[0].x,
-                         local_aos_matrices->cols);
-
-    // parents[i] >= from is true as long as "i" is a child of "from".
-    for (const int soa_end = (i + 4) & ~3; i < soa_end && process;
-         ++i, process = i < end && parents[i] >= from) {
-      const int parent = parents[i];
-      const math::Float4x4* parent_matrix =
-          parent == Skeleton::kNoParent ? root_matrix : &output[parent];
-      output[i] = *parent_matrix * local_aos_matrices[i & 3];
+    // Begins iteration from "from", or the next joint if "from" is excluded.
+    // Process next joint if end is not reach. parents[begin] >= from is true as
+    // long as "begin" is a child of "from".
+    for (int i = math::Max(from + from_excluded, 0), process = i < end && (!from_excluded || parents[i] >= from); process;)
+    {
+        // Builds soa matrices from soa transforms.
+        const math::SoaTransform& transform = input.begin[i / 4];
+        const math::SoaFloat4x4 local_soa_matrices = math::SoaFloat4x4::FromAffine(
+                                                                                   transform.translation, transform.rotation, transform.scale);
+        
+        // Converts to aos matrices.
+        math::Float4x4 local_aos_matrices[4];
+        math::Transpose16x16(&local_soa_matrices.cols[0].x,
+                             local_aos_matrices->cols);
+        
+        // parents[i] >= from is true as long as "i" is a child of "from".
+        for (const int soa_end = (i + 4) & ~3; i < soa_end && process; ++i, process = i < end && parents[i] >= from)
+        {
+            const int parent = parents[i];
+            const math::Float4x4* parent_matrix =
+            parent == Skeleton::kNoParent ? root_matrix : &output[parent];
+            output[i] = *parent_matrix * local_aos_matrices[i & 3];
+        }
     }
-  }
   return true;
 }
 }  // namespace animation
