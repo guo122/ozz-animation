@@ -10,4 +10,4 @@ lib
 ios.sh
 macos.sh
 windows.bat
-clear.sh
+clean.sh
