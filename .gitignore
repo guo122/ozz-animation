@@ -5,3 +5,9 @@ build-cc/
 Solution
 html
 latex
+lib
+
+ios.sh
+macos.sh
+windows.bat
+clean.sh
