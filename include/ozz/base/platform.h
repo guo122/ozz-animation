@@ -44,8 +44,13 @@ for(auto it = _list.begin; it != _list.end; ++it) {std::cout << *it << std::endl
 gzytest_DrawLine;\
 for(auto& x: _list){std::cout << x << std::endl; }
 
+#define gzytest_StdVector_IndexOutput(_first, _list) \
+gzytest_DrawLine; \
+{int i = _first; \
+for(auto& x: _list){std::cout << i++ << " " << x << std::endl;}}
+
 #define gzytest_SimdFloat4_Output(_float4) \
-std::cout << _float4[0] << " " << _float4[1] << " " << _float4[2] << " " << _float4[3] << std::endl;
+std::cout << _float4[0] << "\t" << _float4[1] << "\t" << _float4[2] << "\t" << _float4[3] << std::endl;
 
 #define gzytest_Matrix4x4_Output(_matrix) \
 gzytest_DrawLine;\
