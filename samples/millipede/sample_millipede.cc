@@ -178,6 +178,15 @@ class MillipedeSampleApplication : public ozz::sample::Application {
 
     return true;
   }
+    
+    void PrintTranslate( const ozz::animation::offline::RawSkeleton::Joint & joint, std::string prefix )
+    {
+        std::cout << prefix << joint.transform.translation.x << " " << joint.transform.translation.y << " " << joint.transform.translation.z << std::endl;
+        for ( int i = 0; i < joint.children.size(); ++i )
+        {
+            PrintTranslate(joint.children[i], prefix + " ");
+        }
+    }
 
   // Procedurally builds millipede skeleton and walk animation
   bool Build() {
@@ -197,6 +206,28 @@ class MillipedeSampleApplication : public ozz::sample::Application {
     // Build a walk animation.
     RawAnimation raw_animation;
     CreateAnimation(&raw_animation);
+      
+//      std::cout << "------------skeleton------- " << std::endl;
+//
+//      for ( int i = 0; i < raw_skeleton.roots.size(); ++i )
+//      {
+//          PrintTranslate( raw_skeleton.roots[i], "" );
+//      }
+      
+//
+//      for ( int i = 0; i < raw_animation.tracks.size(); ++i )
+//      {
+//          auto trans = raw_animation.tracks[i].translations;
+//          std::cout << i << ": " << trans[0].value.x << ", " << trans[0].value.y << ", " << trans[0].value.z << std::endl;
+//      }
+      
+//      std::cout << "------------aniamtion------- " << std::endl;
+//      for ( int i = 0; i < raw_animation.tracks.size(); ++i )
+//      {
+//          auto trans = raw_animation.tracks[i].translations;
+//          std::cout  << trans[0].value.x << " " << trans[0].value.y << " " << trans[0].value.z << std::endl;
+//      }
+      
 
     // Build the run time animation from the raw animation.
     ozz::animation::offline::AnimationBuilder animation_builder;

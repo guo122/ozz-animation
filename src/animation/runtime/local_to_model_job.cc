@@ -78,8 +78,8 @@ bool LocalToModelJob::Run() const {
   // matrices without requiring a branch.
   const math::Float4x4 identity = math::Float4x4::identity();
   const math::Float4x4* root_matrix = (root == NULL) ? &identity : root;
-    gzytest_Matrix4x4_Output(identity);
-    gzytest_Matrix4x4_Output((*root_matrix));
+//    gzytest_Matrix4x4_Output(identity);
+//    gzytest_Matrix4x4_Output((*root_matrix));
   // Applies hierarchical transformation.
   // Loop ends after "to".
   const int end = math::Min(to + 1, skeleton->num_joints());
